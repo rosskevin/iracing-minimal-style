@@ -4,7 +4,7 @@
 // @description iRacing's site has a bit too many pieces of flair. Let's minimize the distractions.
 // @include     http://members.iracing.com/jforum/*
 // @include     http://members.iracing.com/membersite/member/*
-// @version     4
+// @version     5
 // @grant       none
 // ==/UserScript==
 var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=document.createElement("script"),d.setAttribute("src",a),b!=null&&d.addEventListener("load",b),c!=null&&d.addEventListener("error",c),document.body.appendChild(d);return d},execute=function(a){var b,c;typeof a=="function"?b="("+a+")();":b=a,c=document.createElement("script"),c.textContent=b,document.body.appendChild(c);return c},loadAndExecute=function(a,b){return load(a,function(){return execute(b)})}
@@ -64,8 +64,9 @@ executeJQuery(function () {
 
         // remove gradients on posts
         //$('.trFade').remove();
+        $('table').css('border-color', '#f4f4f4');
         rmBgImage('.trFade');
-        $('.trDark').css('background-color', '#ccc');
+        $('.trDark').css('background-color', '#f4f4f4');
         rmBgImage('tr, #trTop, .thTopMid, .tdCategory, #trPoll td');
         // header blue 303da5
         $('.thTopMid').css('text-shadow', 'none');
@@ -76,12 +77,30 @@ executeJQuery(function () {
 
         // author panel
         $('.tdPostAuthor').css('font-size', '10px');
+        $('.tdPostAuthor').css('border', 'none');
+        $('.trFade td').css('border', 'none');
+        $('.tdPostAuthor img').css('margin', '0px');
+
+        // make helmet smaller
+        var helmets = $(".tdPostAuthor img[width='48']");
+        helmets.attr('width', '36');
+        helmets.attr('height', '36');
+
+        // make badge smaller
+        $(".tdPostAuthor img[src*='/member_images/badges']").css('height', '12px');
 
         // signature
         $('.userSignature').css('max-height', '45px');
+        $('.userSignature').css('border-top', '1px solid #f4f4f4');
 
         // list categories
         $('.tdCategory').css('text-shadow', 'none');
         $('.tdCategory').css('background-color', '#787878');
+
+        $('.tdTopic').parent().hover(function (){
+            $(this).css('background-color', '#f4f4f4');
+        }, function(){
+            $(this).css('background-color', '#fff');
+        });
     }
 });
