@@ -7,7 +7,10 @@ iRacing's site has a bit too many pieces of flair.   Let's minimize the distract
 - ?
 
 # Member site
-- kills background images
+- Removes background images (promotions)
+- Removes ticker
+- Removes big footer (not the nav, the black mostly unused footer)
+- Removes the facebook publish icon
 
 # Installation
 For those of you that don't use it, I recommend the chrome extension Tampermonkey by Jan Biniok. It makes it easy to add userscripts and also triggers updating them when they are listed on userscripts.org (which this one is). You may use this script with or without it, but I do recommend it.
