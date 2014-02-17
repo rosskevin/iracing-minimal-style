@@ -62,7 +62,7 @@ executeJQuery(function () {
 
         // remove gradients on posts
         //$('.trFade').remove();
-        //$('table').css('border-color', '#f4f4f4');
+        $('table').css('border-color', '#f4f4f4');
         rmBgImage('.trFade');
         $('.trDark').css('background-color', '#f4f4f4');
         rmBgImage('tr, #trTop, .thTopMid, .tdCategory, #trPoll td');
@@ -70,8 +70,19 @@ executeJQuery(function () {
         $('.thTopMid').css('text-shadow', 'none');
         $('#trTop').css('background-color', '#303da5');
 
+        // kill rounded corners up top
+        rmBgImage('#topCorners, #bottomCorners');
+
         // ids are misused by the forum software, so finding the right element is a bit of a pain
         $('form#post').parent().parent().parent().find('tr:first-child').css('background-color', '#303da5');
+        $('form#post').parent().parent().parent().parent().parent().find('div#topCorners').css('background-image', 'none');
+        $('form#post').parent().parent().parent().parent().parent().next().css('background-image', 'none');
+
+        // add a border to the last post
+        $('table#forum tr:last').css('border-bottom', '1px solid #f4f4f4');
+
+        // blockquote
+        $('blockquote, textarea').css('border-color', '#f4f4f4');
 
         // author panel
         $('.tdPostAuthor').css('font-size', '10px');
