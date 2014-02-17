@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name        iRacing minimal-style
+// @name        iRacing minimal style
 // @namespace   drinkto.me
-// @description Userscript for iRacing that reduces flair to create a calmer environment.
+// @description iRacing's site has a bit too many pieces of flair. Let's minimize the distractions.
 // @include     http://members.iracing.com/jforum/forums/list.page
 // @include     http://members.iracing.com/membersite/member/*
-// @version     1
+// @version     2
 // @grant       none
 // ==/UserScript==
 var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=document.createElement("script"),d.setAttribute("src",a),b!=null&&d.addEventListener("load",b),c!=null&&d.addEventListener("error",c),document.body.appendChild(d);return d},execute=function(a){var b,c;typeof a=="function"?b="("+a+")();":b=a,c=document.createElement("script"),c.textContent=b,document.body.appendChild(c);return c},loadAndExecute=function(a,b){return load(a,function(){return execute(b)})}
@@ -12,7 +12,7 @@ var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=docum
 
 executeJQuery(function () {
 
-    if (window.location.pathname.indexOf("/membersite/member") > 0) {
+    if (/\/membersite\/member/.test(self.location.href)) {
 
         // remove background images
         var body = $('body');

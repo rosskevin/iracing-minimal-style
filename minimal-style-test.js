@@ -1,7 +1,7 @@
 // to debug/load and debug from external
 /*
  var e = document.createElement("script");
- e.src = 'https://dl-web.dropbox.com/get/racing/apps/userscripts/iracing-road-only/onlyroad-test.js?_subject_uid=136943504&w=AADOpCS7pW2XraK2lDWqdkgDc7fOl6P7SZ16UuOh0vUsZg&dl=1';
+ e.src = 'https://dl-web.dropbox.com/get/racing/apps/userscripts/iracing-minimal-style/minimal-style-test.js?_subject_uid=136943504&w=AABMGG1_kGYXxbYBLSazfR4lsMZALP3QX4Yph3skRKOX0g&dl=1';
  e.type="text/javascript";
  document.getElementsByTagName("head")[0].appendChild(e);
  */
@@ -10,7 +10,7 @@ var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=docum
 
 executeJQuery(function () {
 
-    if (window.location.pathname.indexOf("/membersite/member") > 0) {
+    if (/\/membersite\/member/.test(self.location.href)) {
 
         // remove background images
         var body = $('body');
