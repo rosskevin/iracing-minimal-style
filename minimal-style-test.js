@@ -81,11 +81,12 @@ executeJQuery(function () {
         // add a border to the last post
         $('table#forum tr:last').css('border-bottom', '1px solid #f4f4f4');
 
-        // blockquote
-        $('blockquote, textarea').css('border-color', '#f4f4f4');
+        //
+        $('blockquote, textarea, .tdTopic, .tdAuthor, .tdMeta, .tdLast').css('border-color', '#f4f4f4');
 
         // author panel
-        $('.tdPostAuthor').css('font-size', '10px');
+        $('.tdPostAuthor').css('font-size', '8px');
+        $('.tdPostAuthor strong').css('font-size', '12px');
         $('.tdPostAuthor').css('border', 'none');
         $('.trFade td').css('border', 'none');
         $('.tdPostAuthor img').css('margin', '0px');
@@ -99,8 +100,9 @@ executeJQuery(function () {
         $(".tdPostAuthor img[src*='/member_images/badges']").css('height', '12px');
 
         // signature
-        $('.userSignature').css('max-height', '45px');
+        $('.userSignature').css('max-height', '50px');
         $('.userSignature').css('border-top', '1px solid #f4f4f4');
+        $('.userSignature').css('font-size', '85%');
 
         // list categories
         $('.tdCategory').css('text-shadow', 'none');
