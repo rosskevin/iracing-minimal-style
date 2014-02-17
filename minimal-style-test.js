@@ -62,7 +62,7 @@ executeJQuery(function () {
 
         // remove gradients on posts
         //$('.trFade').remove();
-        $('table').css('border-color', '#f4f4f4');
+        //$('table').css('border-color', '#f4f4f4');
         rmBgImage('.trFade');
         $('.trDark').css('background-color', '#f4f4f4');
         rmBgImage('tr, #trTop, .thTopMid, .tdCategory, #trPoll td');
