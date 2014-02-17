@@ -4,7 +4,7 @@
 // @description iRacing's site has a bit too many pieces of flair. Let's minimize the distractions.
 // @include     http://members.iracing.com/jforum/forums/list.page
 // @include     http://members.iracing.com/membersite/member/*
-// @version     2
+// @version     3
 // @grant       none
 // ==/UserScript==
 var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=document.createElement("script"),d.setAttribute("src",a),b!=null&&d.addEventListener("load",b),c!=null&&d.addEventListener("error",c),document.body.appendChild(d);return d},execute=function(a){var b,c;typeof a=="function"?b="("+a+")();":b=a,c=document.createElement("script"),c.textContent=b,document.body.appendChild(c);return c},loadAndExecute=function(a,b){return load(a,function(){return execute(b)})}
@@ -12,12 +12,22 @@ var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=docum
 
 executeJQuery(function () {
 
-    if (/\/membersite\/member/.test(self.location.href)) {
+    //----------------------------
+    // Forum and member site
+    //
+    function rmBgImage(selector){
+        $(selector).css('background-image', 'none');
+    }
 
-        // remove background images
-        var body = $('body');
-        body.css('background-image', '');
-        body.css('background-color', '#fff');
+    // remove background images
+    var body = $('body');
+    body.css('background-image', 'none');
+    body.css('background-color', '#fff');
+
+    //----------------------------
+    // Member site
+    //
+    if (/\/membersite\/member/.test(self.location.href)) {
 
         // remove the ticker
         $('#ticker_data embed').remove();
@@ -40,5 +50,38 @@ executeJQuery(function () {
 
         // remove series bg images
         //$('.panel_sprite').css('background-image', '');
+    }
+
+    //----------------------------
+    // Forum
+    //
+    if (/\/jforum/.test(self.location.href)) {
+
+        $('#header').css('height', '60px');
+        rmBgImage('#contentHeader');
+        rmBgImage('#contentBody');
+        rmBgImage('#contentFooter');
+
+        // remove gradients on posts
+        //$('.trFade').remove();
+        rmBgImage('.trFade');
+        $('.trDark').css('background-color', '#ccc');
+        rmBgImage('tr, #trTop, .thTopMid, .tdCategory, #trPoll td');
+        // header blue 303da5
+        $('.thTopMid').css('text-shadow', 'none');
+        $('#trTop').css('background-color', '#303da5');
+
+        // ids are misused by the forum software, so finding the right element is a bit of a pain
+        $('form#post').parent().parent().parent().find('tr:first-child').css('background-color', '#303da5');
+
+        // author panel
+        $('.tdPostAuthor').css('font-size', '10px');
+
+        // signature
+        $('.userSignature').css('max-height', '45px');
+
+        // list categories
+        $('.tdCategory').css('text-shadow', 'none');
+        $('.tdCategory').css('background-color', '#787878');
     }
 });
