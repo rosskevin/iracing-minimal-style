@@ -67,9 +67,7 @@ executeJQuery(function () {
                 }\
                 \
                 /* no bg image */ \
-                #contentHeader, #contentBody, #contentFooter, .contentBar, .trFade,\
-                  tr, #trTop, .thTopMid, .tdCategory, #trPoll td, .trPosts \
-                   #topCorners, #bottomCorners { \
+                #contentHeader, #contentBody, #contentFooter, .contentBar, .trFade, tr, #trTop, .thTopMid, .tdCategory, #trPoll td, .trPosts, #topCorners, #bottomCorners { \
                     background-image: none; \
                 } \
                 \
@@ -79,12 +77,13 @@ executeJQuery(function () {
 	               line-height: 19px;\
 	            } \
 	            \
-	            #postANewTopic, #replyToTheTopic { background-color: #303da5; }\
+	            #previousPage, #toForumArchive { display: none; } \
+	            #postANewTopic, #replyToTheTopic { background-color: #303da5; } \
 	            #replyToTheTopic { text-indent: 45px; }\
 	            #postANewTopic { text-indent: 12px; }\
 	            \
 	            #markAllAsRead, #viewNewTopics, #watchThisTopic { background-color: #787878; } \
-	            #watchThisTopic { text-indent: 14px; } \
+	            #watchThisTopic { text-indent: 17px; } \
 	            #viewNewTopics { text-indent: 14px; } \
 	            #markAllAsRead { text-indent: 20px; } \
 	            \
@@ -93,7 +92,7 @@ executeJQuery(function () {
                     text-indent: 12px; \
 	            } \
 	            \
-	            table, blockquote, textarea, .tdTopic, .tdAuthor, .tdMeta, .tdLast {\
+	            table, blockquote, textarea, .tdTopic, .tdAuthor, .tdMeta, .tdLast, .postOptions {\
 	                border-color: #f4f4f4;\
 	            }\
 	            \
@@ -112,13 +111,37 @@ executeJQuery(function () {
 	            table#forum tr:last {\
 	                border-bottom: 1px solid #f4f4f4;\
 	            }\
+	            \
+	            .tdPostAuthor {\
+	                font-size: 8px;\
+                    border: none;\
+                }\
+                \
+                .tdPostAuthor strong { font-size:12px; }\
+                .tdPostAuthor img { margin: 0px; }\
+                \
+                .userSignature {\
+                    max-height: 50px;\
+                    border-top: 1px solid #f4f4f4;\
+                    font-size: 85%;\
+                }\
+                \
+                .tdCategory {\
+                    text-shadow: none;\
+                    background-color: #787878;\
+                 }\
             \
 	        </style>";
 
         var cssBlock = $(cssBlock);
 //        setInterval(function () {
-            $("head").append(cssBlock);
-//        }, 1000);
+        $("head").append(cssBlock);
+
+//        var iframe = $("iframe head");
+//        if(iframe){
+//            iframe.contents().find("head")[0].appendChild(cssBlock);
+////            $('head', window.frames['iframe'].document).append(cssBlock);
+//        }
 
 
 //        var contentBarButton = $('.contentBarButton');
@@ -126,10 +149,19 @@ executeJQuery(function () {
 //        contentBarButton.css('color', '#fff');
 //        contentBarButton.css('line-height', '19px');
 
-        var postNew = $('#postANewTopic');
-        postNew.text('Post a New Topic');
-//        postNew.css('background-color', '#303da5');
-//        postNew.css('text-indent', '12px');
+        $('.contentBarButton').each(function(index){
+            var e = $(this);
+            var id = e.attr('id');
+
+//            console.log(id);
+            if(id == 'postANewTopic'){
+                e.text('Post a New Topic');
+            }
+//            var postNew = $('#postANewTopic');
+//            postNew.text('Post a New Topic');
+    //        postNew.css('background-color', '#303da5');
+    //        postNew.css('text-indent', '12px');
+        });
 
         $('#watchThisTopic').text('Watch this topic');
 
@@ -142,7 +174,7 @@ executeJQuery(function () {
 //        watchThisForum.css('text-indent', '12px');
 
         // remove gradients on posts
-        rmBgImage('.trPosts');
+        rmBgImage('.trPosts, .trTopBlank');
 //        rmBgImage('.contentBar');
         $('table').css('border-color', '#f4f4f4');
 //        rmBgImage('.trFade');
@@ -153,7 +185,8 @@ executeJQuery(function () {
 //        $('#trTop').css('background-color', '#303da5');
 
         // kill rounded corners up top
-        rmBgImage('#topCorners, #bottomCorners');
+//        rmBgImage('#topCorners');
+//        rmBgImage('#bottomCorners');
 
         // ids are misused by the forum software, so finding the right element is a bit of a pain
         $('form#post').parent().parent().parent().find('tr:first-child').css('background-color', '#303da5');
@@ -167,11 +200,11 @@ executeJQuery(function () {
 //        $('blockquote, textarea, .tdTopic, .tdAuthor, .tdMeta, .tdLast').css('border-color', '#f4f4f4');
 
         // author panel
-        $('.tdPostAuthor').css('font-size', '8px');
-        $('.tdPostAuthor strong').css('font-size', '12px');
-        $('.tdPostAuthor').css('border', 'none');
+//        $('.tdPostAuthor').css('font-size', '8px');
+//        $('.tdPostAuthor').css('border', 'none');
+//        $('.tdPostAuthor strong').css('font-size', '12px');
         $('.trFade td').css('border', 'none');
-        $('.tdPostAuthor img').css('margin', '0px');
+//        $('.tdPostAuthor img').css('margin', '0px');
 
         // make helmet smaller
         var helmets = $(".tdPostAuthor img[width='48']");
@@ -182,13 +215,13 @@ executeJQuery(function () {
         $(".tdPostAuthor img[src*='/member_images/badges']").css('height', '12px');
 
         // signature
-        $('.userSignature').css('max-height', '50px');
-        $('.userSignature').css('border-top', '1px solid #f4f4f4');
-        $('.userSignature').css('font-size', '85%');
+//        $('.userSignature').css('max-height', '50px');
+//        $('.userSignature').css('border-top', '1px solid #f4f4f4');
+//        $('.userSignature').css('font-size', '85%');
 
         // list categories
-        $('.tdCategory').css('text-shadow', 'none');
-        $('.tdCategory').css('background-color', '#787878');
+//        $('.tdCategory').css('text-shadow', 'none');
+//        $('.tdCategory').css('background-color', '#787878');
 
         $('.tdTopic').parent().hover(function (){
             $(this).css('background-color', '#f4f4f4');
