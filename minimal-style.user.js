@@ -64,6 +64,7 @@ executeJQuery(function () {
 
         // remove gradients on posts
         //$('.trFade').remove();
+        rmBgImage('.contentBar');
         $('table').css('border-color', '#f4f4f4');
         rmBgImage('.trFade');
         $('.trDark').css('background-color', '#f4f4f4');
