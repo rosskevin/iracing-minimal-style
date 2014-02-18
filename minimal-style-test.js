@@ -55,16 +55,20 @@ executeJQuery(function () {
     //
     if (/\/jforum/.test(self.location.href)) {
 
-        $('#header').css('height', '60px');
+//        $('#header').css('height', '60px');
 //        rmBgImage('#contentHeader');
 //        rmBgImage('#contentBody');
 //        rmBgImage('#contentFooter');
 
         var cssBlock = "<style type='text/css'> \
         \
+                #header { \
+                    height: 60px;\
+                }\
+                \
                 /* no bg image */ \
                 #contentHeader, #contentBody, #contentFooter, .contentBar, .trFade,\
-                  tr, #trTop, .thTopMid, .tdCategory, #trPoll td,\
+                  tr, #trTop, .thTopMid, .tdCategory, #trPoll td, .trPosts \
                    #topCorners, #bottomCorners { \
                     background-image: none; \
                 } \
@@ -75,23 +79,46 @@ executeJQuery(function () {
 	               line-height: 19px;\
 	            } \
 	            \
-	            #postANewTopic { \
-	                background-color: #303da5; \
-	                text-indent: 12px; \
-	            } \
+	            #postANewTopic, #replyToTheTopic { background-color: #303da5; }\
+	            #replyToTheTopic { text-indent: 45px; }\
+	            #postANewTopic { text-indent: 12px; }\
 	            \
-	            #markAllAsRead { \
-	                background-color: #787878; \
-                    text-indent: 20px; \
-	            } \
+	            #markAllAsRead, #viewNewTopics, #watchThisTopic { background-color: #787878; } \
+	            #watchThisTopic { text-indent: 14px; } \
+	            #viewNewTopics { text-indent: 14px; } \
+	            #markAllAsRead { text-indent: 20px; } \
 	            \
 	            #watchThisForum { \
 	                background-color: #787878; \
                     text-indent: 12px; \
 	            } \
+	            \
+	            table, blockquote, textarea, .tdTopic, .tdAuthor, .tdMeta, .tdLast {\
+	                border-color: #f4f4f4;\
+	            }\
+	            \
+	            .trDark {\
+	                background-color: #f4f4f4; \
+	             }\
+	             \
+	            .thTopMid {\
+	                text-shadow: none;\
+	            }\
+	            \
+	            #trTop {\
+	                background-color: #303da5;\
+	            }\
+	            \
+	            table#forum tr:last {\
+	                border-bottom: 1px solid #f4f4f4;\
+	            }\
+            \
 	        </style>";
 
-        $(cssBlock).appendTo("head");
+        var cssBlock = $(cssBlock);
+//        setInterval(function () {
+            $("head").append(cssBlock);
+//        }, 1000);
 
 
 //        var contentBarButton = $('.contentBarButton');
@@ -104,6 +131,8 @@ executeJQuery(function () {
 //        postNew.css('background-color', '#303da5');
 //        postNew.css('text-indent', '12px');
 
+        $('#watchThisTopic').text('Watch this topic');
+
 //        var markAllAsRead = $('#markAllAsRead');
 //        markAllAsRead.css('background-color', '#787878');
 //        markAllAsRead.css('text-indent', '20px');
@@ -113,28 +142,29 @@ executeJQuery(function () {
 //        watchThisForum.css('text-indent', '12px');
 
         // remove gradients on posts
+        rmBgImage('.trPosts');
 //        rmBgImage('.contentBar');
         $('table').css('border-color', '#f4f4f4');
 //        rmBgImage('.trFade');
-        $('.trDark').css('background-color', '#f4f4f4');
+//        $('.trDark').css('background-color', '#f4f4f4');
 //        rmBgImage('tr, #trTop, .thTopMid, .tdCategory, #trPoll td');
         // header blue 303da5
-        $('.thTopMid').css('text-shadow', 'none');
-        $('#trTop').css('background-color', '#303da5');
+//        $('.thTopMid').css('text-shadow', 'none');
+//        $('#trTop').css('background-color', '#303da5');
 
         // kill rounded corners up top
-//        rmBgImage('#topCorners, #bottomCorners');
+        rmBgImage('#topCorners, #bottomCorners');
 
         // ids are misused by the forum software, so finding the right element is a bit of a pain
         $('form#post').parent().parent().parent().find('tr:first-child').css('background-color', '#303da5');
-//        $('form#post').parent().parent().parent().parent().parent().find('div#topCorners').css('background-image', 'none');
-//        $('form#post').parent().parent().parent().parent().parent().next().css('background-image', 'none');
+        $('form#post').parent().parent().parent().parent().parent().find('div#topCorners').css('background-image', 'none');
+        $('form#post').parent().parent().parent().parent().parent().next().css('background-image', 'none');
 
         // add a border to the last post
         $('table#forum tr:last').css('border-bottom', '1px solid #f4f4f4');
 
         //
-        $('blockquote, textarea, .tdTopic, .tdAuthor, .tdMeta, .tdLast').css('border-color', '#f4f4f4');
+//        $('blockquote, textarea, .tdTopic, .tdAuthor, .tdMeta, .tdLast').css('border-color', '#f4f4f4');
 
         // author panel
         $('.tdPostAuthor').css('font-size', '8px');
