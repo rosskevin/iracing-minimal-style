@@ -1,13 +1,17 @@
 iracing-minimal-style
 =================
 
-iRacing's site has a bit too many pieces of flair.   Let's minimize the distractions.
+iRacing's site has a bit too many pieces of flair.   Let's minimize the distractions and soften the style.
 
 # Forums
-- ?
+- decreases header
+- removes image based curves on borders/buttons/etc
+- shrinks up a bunch of unused space
+- shrinks author details on every post (leaving name pronounced)
+- imposes smaller max height on signatures
 
 # Member site
-- Removes background images (promotions)
+- Removes left/right background images (promotions)
 - Removes ticker
 - Removes big footer (not the nav, the black mostly unused footer)
 - Removes the facebook publish icon
@@ -16,11 +20,10 @@ iRacing's site has a bit too many pieces of flair.   Let's minimize the distract
 For those of you that don't use it, I recommend the chrome extension Tampermonkey by Jan Biniok. It makes it easy to add userscripts and also triggers updating them when they are listed on userscripts.org (which this one is). You may use this script with or without it, but I do recommend it.
 
 # Userscripts.org
-? coming soon
+http://userscripts.org/scripts/show/389932
 
 
 ## Contributing
-
 Please contribute! We will readily accept contributions and try to stay on top of them.
 
 ### To Do:
