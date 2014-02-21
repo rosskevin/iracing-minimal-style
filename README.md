@@ -6,9 +6,11 @@ iRacing's site has a bit too many pieces of flair.   Let's minimize the distract
 # Forums
 - decreases header
 - removes image based curves on borders/buttons/etc
+- removes background
 - shrinks up a bunch of unused space
 - shrinks author details on every post (leaving name pronounced)
 - imposes smaller max height on signatures
+- removes gradients and fades for a flat look
 
 # Member site
 - Removes left/right background images (promotions)
