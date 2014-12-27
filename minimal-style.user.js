@@ -4,7 +4,7 @@
 // @description iRacing's site has a bit too many pieces of flair. Let's minimize the distractions.
 // @include     http://members.iracing.com/jforum/*
 // @include     http://members.iracing.com/membersite/member/*
-// @version     10
+// @version     11
 // @grant       none
 // ==/UserScript==
 var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=document.createElement("script"),d.setAttribute("src",a),b!=null&&d.addEventListener("load",b),c!=null&&d.addEventListener("error",c),document.body.appendChild(d);return d},execute=function(a){var b,c;typeof a=="function"?b="("+a+")();":b=a,c=document.createElement("script"),c.textContent=b,document.body.appendChild(c);return c},loadAndExecute=function(a,b){return load(a,function(){return execute(b)})}
@@ -78,6 +78,7 @@ executeJQuery(function () {
 	               color: #fff; \
 	               line-height: 19px;\
 	               background-color: #787878; \
+	               text-indent: 12px; \
 	            } \
 	            \
 	            #previousPage, #toForumArchive { display: none; } \
@@ -167,6 +168,8 @@ executeJQuery(function () {
         });
 
         $('#watchThisTopic').text('Watch this topic');
+        $('#messageInbox').text('Inbox');
+        $('#sentMessages').text('Sent');
 
 //        var markAllAsRead = $('#markAllAsRead');
 //        markAllAsRead.css('background-color', '#787878');
