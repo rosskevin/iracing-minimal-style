@@ -87,6 +87,8 @@ if /\/jforum/.test(self.location.href)
             background-image: none;
             color: #fff;
             line-height: 19px;
+            background-color: #787878;
+            text-indent: 12px;
         }
 
         #previousPage, #toForumArchive {
@@ -105,7 +107,9 @@ if /\/jforum/.test(self.location.href)
             text-indent: 12px;
         }
 
-        #markAllAsRead, #viewNewTopics, #watchThisTopic {
+        /
+        /
+        #markAllAsRead, #viewNewTopics, #watchThisTopic, #writeAMessage, #messageInbox, #sentMessages, #viewNewTopics {
             background-color: #787878;
         }
 
@@ -119,6 +123,11 @@ if /\/jforum/.test(self.location.href)
 
         #markAllAsRead {
             text-indent: 20px;
+        }
+
+        #messageInbox, #sentMessages {
+            text-indent: 38px;
+            margin-left: 5px;
         }
 
         #watchThisForum {
@@ -181,6 +190,9 @@ if /\/jforum/.test(self.location.href)
       e.text 'Post a New Topic'
 
   $('#watchThisTopic').text 'Watch this topic'
+  $('#messageInbox').text 'Inbox'
+  $('#sentMessages').text 'Sent'
+
   # remove gradients on posts
   rmBgImage '.trPosts, .trTopBlank'
   $('table').css 'border-color', '#f4f4f4'
