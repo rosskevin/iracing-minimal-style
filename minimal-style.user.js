@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name        iRacing minimal style
+// @name        iracing-minimal-style
 // @namespace   drinkto.me
 // @description iRacing's site has too much going on. Hide distractions and simplify your life.
 // @include     https://members.iracing.com/jforum/*
 // @include     https://members.iracing.com/membersite/member/*
-// @version     22
+// @version     23
 // @grant       none
 // ==/UserScript==
 
