@@ -53,13 +53,13 @@ rmBgImage = (selector) ->
 #
 if /\/membersite\/member/.test(self.location.href)
   # remove the ticker
-  $('#ticker_data embed').remove()
+#  $('#ticker_data embed').remove()
   # remove the massive footer
-  $('tr td div div a.footer_link').closest('tr').remove()
+#  $('tr td div div a.footer_link').closest('tr').remove()
   # work on the main div
-  mainDiv = $('#maincontent').closest('div')
-  mainDiv.css 'border-left', ''
-  mainDiv.css 'border-right', ''
+#  mainDiv = $('#maincontent').closest('div')
+#  mainDiv.css 'border-left', ''
+#  mainDiv.css 'border-right', ''
 
   $('.fbPublish').remove()
 
@@ -107,8 +107,10 @@ if /\/jforum/.test(self.location.href)
             text-indent: 12px;
         }
 
-        /
-        /
+        #stopWatching {
+            text-indent: 22px;
+        }
+
         #markAllAsRead, #viewNewTopics, #watchThisTopic, #writeAMessage, #messageInbox, #sentMessages, #viewNewTopics {
             background-color: #787878;
         }
@@ -189,6 +191,7 @@ if /\/jforum/.test(self.location.href)
     if id == 'postANewTopic'
       e.text 'Post a New Topic'
 
+  $('#stopWatching').text 'Stop Watching'
   $('#watchThisTopic').text 'Watch this topic'
   $('#messageInbox').text 'Inbox'
   $('#sentMessages').text 'Sent'
