@@ -1,16 +1,17 @@
-iracing-minimal-style
-=================
+# iracing-minimal-style
 
-iRacing's site has a bit too many pieces of flair.   Let's minimize the distractions and soften the style.
+iRacing's site has a bit too many pieces of flair. Let's minimize the distractions and soften the style.
 
 # Installation
-This script is [installable from GreasyFork](https://greasyfork.org/scripts/3755-iracing-minimal-style).
 
-For those of you that don't use it, I recommend the chrome extension Tampermonkey by Jan Biniok.  It makes it easy to add userscripts and also triggers updating them when they are updated elsewhere  You may use this script with or without it, but I do recommend it.
+For those of you that don't use it, I recommend the chrome extension Tampermonkey by Jan Biniok. It makes it easy to add userscripts and also triggers updating them when they are updated elsewhere You may use this script with or without it, but I do recommend it.
+
+The raw script link is installable via https://github.com/rosskevin/iracing-minimal-style/raw/master/minimal-style.user.js
 
 # Features
 
 ## Forums
+
 - decreases header
 - removes image based curves on borders/buttons/etc
 - removes background
@@ -20,17 +21,15 @@ For those of you that don't use it, I recommend the chrome extension Tampermonke
 - removes gradients and fades for a flat look
 
 ## Member site
+
 - Removes left/right background images (promotions)
 - Removes ticker
 - Removes big footer (not the nav, the black mostly unused footer)
 - Removes the facebook publish icon
 
-
 # Contributing
-Please contribute! We will readily accept contributions and try to stay on top of them.
 
-## To Do:
-- [ ] ?
+Please contribute! We will readily accept contributions and try to stay on top of them.
 
 ## To contribute:
 
